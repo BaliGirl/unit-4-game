@@ -1,61 +1,68 @@
-var targetNumber = "";
-var wins = 0;
-var losses = 0;
-var counter = 0;
-var images = ["./assets/images/Crystal_urgentcharacter.png", "./assets/images/Crystal_drstrange.png", "./assets/images/Crystal_arena.png", "./assets/images/Crystal_avengers.png"];
+$(document).ready(function(){
+	var gameStarted = false;
+	var randomNum;
+	var theirScore;
+	var wins = 0;
+	var losses = 0;
+	var button1Value;
+	var button2Value;
+	var button3Value;
+	var button4Value;
 
-// Functions
-
-	function randomTargetNumber () {
-		targetNumber = Math.floor(Math.random() * 102) + 19;
+	function initialize(){
+		randomNum = Math.floor(Math.random() * 102) + 19;
+		button1Value = getButtonValue();
+		button2Value = getButtonValue();
+		button3Value = getButtonValue();
+		button4Value = getButtonValue();
+		theirScore = 0;
+		$("#randomNum").html(randomNum);
+		$("#theirScore").html(theirScore);
 	}
 
-	function resetCrystals () {
-		for (var i = 0; i < images.length; i++) {
-			var crystal = $("<img>");
-			crystal.addClass("crystal");
-			crystal.attr("src", images[i]);
-			crystal.attr("value", (Math.floor(Math.random() * 12) + 1));
-			crystal.attr("height", "100");
-			$(".crystal-images").append(crystal);
+	function getButtonValue(){
+		return Math.floor(Math.random() * 12) + 1;
+	}
+
+	function playGame(theirScore){
+		$("#theirScore").html(theirScore);
+		if(theirScore < randomNum){
+			return
 		}
-	}
-
-	function resetHTML () {
-		$(".target-number").html(targetNumber);
-		$(".win-lose-counter").html("<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>");
-		$(".score-number").html(counter);
-		$(".crystal-images").empty();
-	}
-
-	function totalReset () {
-		randomTargetNumber ();
-		counter = 0;
-		resetHTML ();
-		resetCrystals ();
-	}
-
-// Running Code
-
-	// Inital Page Set Up
-	randomTargetNumber();
-	resetHTML ();
-	resetCrystals ();
-
-// Click Functions
-	function crystalClick () {
-		//attr returns first value of selected html element
-		counter += parseInt($(this).attr("value"));
-		$(".score-number").html(counter);
-		if (counter == targetNumber) {
-			wins++;
-			totalReset();
-		}
-		else if (counter > targetNumber) {
+		if(theirScore > randomNum){
+			var over = theirScore - randomNum
+			$("#result").html("You went over by " + over + "! You lose!");
 			losses++;
-			totalReset();
-		};
-	};
+			$("#losses").html(losses);
+		}
+		else if(theirScore === randomNum){
+			$("#result").html("You win!");
+			wins++;
+			$("#wins").html(wins);
+		}
+		initialize();
+	}
 
-	//Throughout life cycle of the document, accounting for every single time document is dynamically changed execute crystalClick function
-	$(document).on("click", ".crystal", crystalClick);
+	$("#button1").on("click", function(){
+		theirScore += button1Value;
+		playGame(theirScore);
+	});
+
+	$("#button2").on("click", function(){
+		theirScore += button2Value;
+		playGame(theirScore);
+	});
+
+	$("#button3").on("click", function(){
+		theirScore += button3Value;
+		playGame(theirScore);
+	});
+
+	$("#button4").on("click", function(){
+		theirScore += button4Value;
+		playGame(theirScore);
+	});
+
+	initialize();
+	gameStarted = true;
+});

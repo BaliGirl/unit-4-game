@@ -1,41 +1,89 @@
-body {
-	background-image: url("../images/Crystal_Background.png");
-	margin: 0px;
-	padding: 0px;
+body{
+	font-family: 'Special Elite', Verdana, Geneva, sans-serif;
+	color: #333030;
+    background-color: lightblue;
 }
 
-.jumbotron {
-	background-color: orange;
-	color: white;
+.jumbotron{
+	color: #444444;
+	font-family: 'Abril Fatface', "Times New Roman", serif;
+	margin-bottom: 10px;
+	padding-top: 2%;
+	background-image: url(../images/Crystal_Background.png);
+    background-repeat: repeat;
+    background-position: left top;
 }
 
-.target-number {
-	font-size: 30px;
-	background-color: #F8CF9C;
-	border-style: solid;
-	border-color: #ddd;
-	border-width: 4px;
+h2{
+	font-family: 'Sigmar One', Verdana, Geneva, sans-serif;
+	color: #888888;
 }
 
-.win-lose-counter {
-	background-color: #9CE7F8;
-	border-style: solid;
-	border-color: #ddd;
-	border-width: 4px;
+img{
+	border-radius: 6px;
 }
 
-.crystal-images {
-	margin-top: 10px;
+p{
+	font-size: 1.25em;
+	text-align: justify;
+}
+
+.left{
+	padding-right: 20px !important;
+}
+
+#wins, #losses, #yourScoreIs, #theirScore, #result, .wins-losses{
+	background-image: url(../images/prettyblue_background.png);
+    background-repeat: repeat;
+    background-position: left top;
+	font-size: 2em;
+}
+
+#theirScore{
+	font-size: 3em;
+}
+
+#randomNum{
+	text-align: center;
+	background-color: #444444;
+	color: #ffffff;
+	font-size: 4em;
+}
+
+#wins, #losses{
+	font-size: 1em;
+}
+
+#yourScoreIs{
+	font-size: 1.5em;
+	line-height: 2.8em;
+}
+
+.row{
 	margin-bottom: 10px;
 }
-
-.total-score {
-	color: white;
-	background-color: #4aaaa5;
+.col-xs-3{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.row.match-my-cols {
+    overflow: hidden; 
 }
 
-.score-number {
-	color: white;
-	background-color: #4aaaa5;
-	font-size: 30px;
+.row.match-my-cols [class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+
+}
+
+@media screen and (max-width: 767px){
+	#yourScoreIs{
+		line-height: 1.5em;
+	}
+	#wins, #losses, .wins-losses{
+		font-size: 1.5em;
+	}
+	#randomNum, #theirScore{
+		vertical-align: center;
+	}
 }

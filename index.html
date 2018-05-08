@@ -3,83 +3,74 @@
 <head>
 	<meta charset="UTF-8">
     <title>Crystal Collector!</title>
-    
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<!--Added link to Reset Style-->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
-    <link rel="icon" type="image/png" href="assets/images/Crystal_icon.png"/>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      	<!--Added link to Reset Style-->
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	    <script type="text/javascript" src="assets/javascript/game.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Sigmar+One|Special+Elite" rel="stylesheet">
+        <link rel="icon" type="image/png" href="assets/images/Crystal_icon.png"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-	
-<div class="jumbotron">
-    <h1 class="text-center navbar-brand bg-info text-white font-weight-bold vertical-align-muted">Crystal Collector Game</h1>
-</div>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1>CRYSTAL COLLECTOR</h1>
+		</div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-5">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-	            	<h3 class="panel-title">How to Play!</h3>
-	          	</div>
-	          	<div class="panel-body">
-					<p>
-						You will be given a random number at the start of the game.
-					</p>
-					<p>
-						There are four crystals below.  By clicking on a crystal you will add a specific amount of points to your total score.
-					</p>
-					<p>
-						You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.
-					</p>
-					<p>
-						The value of each crystal is hidden from you until you click on it.
-					</p>
-					<p>
-						Each time when the game starts, the game will change the values of each crystal.
-					</p>
-				</div>
+		<div class="row center-block match-my-cols">
+			<div class="col-md-4 left border-success">
+				<p>You will be given a random number at the start of the game. To win you must match that number without going over.</p><br>
+				<p>To collect points, click on any of the following four crystals. Each crystal is worth an amount between 1 and 12.</p><br>
+				<p>The value of each crystal is hidden from you until you click on it, and each time the games starts, the value of each crystal will change.</p><br>
+				<p>Have fun!</p>
 			</div>
-		</div>
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-6">
-			<div class="row">
-				<div class="col-md-4 target-number">
+
+			<div class="col-md-8">
+				<div class="row match-my-cols">
+					<div class="col-xs-4" id="randomNum">--</div>
+					<div class="col-xs-5 text-right" id="yourScoreIs">
+						Your total score:
+					</div>
+					<div class="col-xs-3" id="theirScore">--</div>
 				</div>
-				<div class="col-md-1"></div>
-				<div class="col-md-4 win-lose-counter">
+
+				<div class="row text-center" id="result">Let's Play!</div>
+
+				
+				<div class="row match-my-cols">
+					<img id="button1" class="col-xs-3 pic" src="assets/images/Crystal_urgentcharacter.png" alt="orange blue crystal">
+					<img id="button2" class="col-xs-3 pic" src="assets/images/Crystal_drstrange.png" alt="bright pink purple crystal" />
+					<img id="button3" class="col-xs-3 pic" src="assets/images/Crystal_arena.png" alt="blue gold crystal" />
+					<img id="button4" class="col-xs-3 pic" src="assets/images/Crystal_avengers.png" alt="teal purple crystal" />	
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 crystal-images">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 total-score">
-					<p>
-						Your total score is:
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 score-number">
+
+				<div class="row wins-losses match-my-cols">
+					<div class="col-xs-3 text-right">Wins:</div>
+					<div class="col-xs-3 text-left" id="wins">0</div>
+					<div class="col-xs-3 text-right">Losses:</div>
+					<div class="col-xs-3 text-left" id="losses">0</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-	
 
+    <footer class="mt-5 text-center fixed-bottom">
 
-	<!-- Added link to Javascript-->
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
+            <div class="absolute-top pt-1 mt-5 bg-info">
+                
+            </div>
+              <nav class="navbar-dark bg-dark text-white">
+              <small>Copyright &copy; Therisia W Hadley
+              </small>
+              </nav>
+          
+    </footer>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    	<!-- Added link to Javascript-->
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>
