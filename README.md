@@ -14,4 +14,4 @@
 <p>The random number shown at the start of the game should be between 19 - 120</p>
 <p>Each crystal should have a random hidden value between 1 - 12</p>
 
-Let's play and have fun!
+<b>Let's play and have fun!</b>
