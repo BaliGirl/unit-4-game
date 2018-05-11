@@ -10,7 +10,7 @@ $(document).ready(function(){
 	var button4Value;
 
 	function initialize(){
-		randomNum = Math.floor(Math.random() * 102) + 19;
+		randomNum = Math.floor(Math.random() * 120) + 19;
 		button1Value = getButtonValue();
 		button2Value = getButtonValue();
 		button3Value = getButtonValue();
